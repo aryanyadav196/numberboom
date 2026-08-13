@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speed & Focus: Number Boom (Ultimate Edition)</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <!-- Ambient Lights -->
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+
+  <!-- HUD Bar -->
+  <header id="hud">
+    <div class="player-profile">
+      <span id="player-avatar">😎</span>
+      <div>
+        <div class="profile-label">PLAYER</div>
+        <div id="player-name">Pro Gamer</div>
+      </div>
+    </div>
+
+    <div class="target-card">
+      <div class="target-label">TARGET NUMBER</div>
+      <div id="target-num">---</div>
+    </div>
+
+    <div class="stats-card">
+      <div class="stat-item">
+        <span class="stat-title">TIMER</span>
+        <span id="timer-val" class="stat-val timer-highlight">15s</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-title">SCORE</span>
+        <span id="current-score" class="stat-val">0</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-title">BEST</span>
+        <span id="high-score" class="stat-val">0</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- In-Game Control Bar -->
+  <div id="controls-bar">
+    <button class="ctrl-btn" id="pause-btn" onclick="togglePause()" title="Pause">⏸️</button>
+    <button class="ctrl-btn" id="sound-btn" onclick="toggleSound()" title="Sound On/Off">🔊</button>
+    <button class="ctrl-btn" onclick="restartGame()" title="Restart">🔄</button>
+    <button class="ctrl-btn" onclick="goHome()" title="Home Menu">🏠</button>
+  </div>
+
+  <!-- Main Game Stage -->
+  <main id="game-stage"></main>
+
+  <!-- Overlay Modal Screens -->
+  <div id="overlay">
+    <div class="modal-card">
+      <div class="avatar-large" id="modal-avatar">✨🎯✨</div>
+      <h2 id="overlay-msg">Number Boom 💥</h2>
+      <p id="overlay-submsg">Select your timer and test your speed & focus!</p>
+      
+      <!-- Timer Selector -->
+      <div class="timer-selector">
+        <span class="selector-label">CHOOSE TIMER:</span>
+        <div class="timer-options">
+          <button class="time-btn" onclick="setTimerOption(5, this)">5s</button>
+          <button class="time-btn active" onclick="setTimerOption(15, this)">15s</button>
+          <button class="time-btn" onclick="setTimerOption(30, this)">30s</button>
+          <button class="time-btn" onclick="setTimerOption(60, this)">60s</button>
+        </div>
+      </div>
+
+      <button id="start-btn" onclick="startGame()">
+        <span id="btn-text">START GAME</span>
+      </button>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
